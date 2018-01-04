@@ -1,5 +1,5 @@
 language: node_js
 node_js: stable
 before_script:
-- npm install -g bower gulp-cli@1
+- npm install -g bower gulp-cli@1 polymer-cli
 - bower install
