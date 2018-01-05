@@ -1,33 +1,13 @@
-dist: trusty
-sudo: false
-group: beta
-
 language: node_js
-node_js:
-- node
-addons:
-  firefox: latest-esr
-cache:
-  directories:
-  - node_modules
-  - "$HOME/.cache/bower"
-before_install:
-- "if [ -d node_modules ] && [ x$(cat node_modules/.last-node-version 2>/dev/null) != x$(node -e 'console.log(process.version)') ]; then npm rebuild --update-binary && node -e 'console.log(process.version)' > node_modules/.last-node-version; fi"
+node_js: stable
 before_script:
-- npm install web-component-tester bower
-- $(npm bin)/bower install
-script:
-- xvfb-run $(npm bin)/wct
+- npm install -g bower gulp-cli@1 polymer-cli browserstack-local
+- bower install
+addons:
 
-
-# language: node_js
-# node_js: stable
-# before_script:
-# - npm install -g bower gulp-cli@1 polymer-cli browserstack-local
-# - bower install
-# addons:
-
-#   browserstack:
-#     username: marcusweaver1
-#     access_key:
-#       secure: MAz2JAV/GArMqfGnoHfsBheO08vnAVnSbzAogZEHR0KGZDZV7pfUffi1E8/qiyDGomQkzk3dHJaMro6hXc5LhYV0wc4QqueHOT/4rNxrYyw2QeBZD8LyXPe3WWx3VY4Zs3UwFvrEhtAPGuiEL4REXbsFNqnxX2INmU+6p1pY4L+uUmvefG5eMoCaP4OzmbUaQNgljNKCzfYM/Yq9b4GNjzX8WOF6Gb2Kiu7lNF2y4j8y2l1VZwYEu/C0SX42niN2qjY6YIeLABxZBnRFCDIJDG9QDsiKU7ToYITRBbATQrkxcLgeiBqNG9hXYjAkwLiZnvrwkMuokWemBwOLfHWuDA16HAhwZhBryy3MObq7iR3FKvozoGLXYEnVfq+fUC+BVwiFFAPg06MtbuKo9IH/xVmgNxmwziUhMpxZpdL/r0ouBjEpTNoHQz0FmoOj5cCIgZdiKQZeS0MA/YY8MH9xxiJxZnl7iFPcH8Ob4xm4qM6EUZvCYiAZ2FacP1B84nnnPemCHYHyB1PMmM/NAFEcCm3+ISBt1wF5OD/DX/z65Ahy7zIlhjngPd9Nl+/pfxskFzYJ/8pH67HEmAP9gN3lQx4uQE4CTm6JwQpjLvk+TmayeWFKfQLJR7UJPwAdgj5IYlYWXnsOM9A7qy6qxStwpD+7iZYb/XQHkliKOdIfYa8=
+  browserstack:
+    username: marcusweaver1
+    access_key:
+      secure: MAz2JAV/GArMqfGnoHfsBheO08vnAVnSbzAogZEHR0KGZDZV7pfUffi1E8/qiyDGomQkzk3dHJaMro6hXc5LhYV0wc4QqueHOT/4rNxrYyw2QeBZD8LyXPe3WWx3VY4Zs3UwFvrEhtAPGuiEL4REXbsFNqnxX2INmU+6p1pY4L+uUmvefG5eMoCaP4OzmbUaQNgljNKCzfYM/Yq9b4GNjzX8WOF6Gb2Kiu7lNF2y4j8y2l1VZwYEu/C0SX42niN2qjY6YIeLABxZBnRFCDIJDG9QDsiKU7ToYITRBbATQrkxcLgeiBqNG9hXYjAkwLiZnvrwkMuokWemBwOLfHWuDA16HAhwZhBryy3MObq7iR3FKvozoGLXYEnVfq+fUC+BVwiFFAPg06MtbuKo9IH/xVmgNxmwziUhMpxZpdL/r0ouBjEpTNoHQz0FmoOj5cCIgZdiKQZeS0MA/YY8MH9xxiJxZnl7iFPcH8Ob4xm4qM6EUZvCYiAZ2FacP1B84nnnPemCHYHyB1PMmM/NAFEcCm3+ISBt1wF5OD/DX/z65Ahy7zIlhjngPd9Nl+/pfxskFzYJ/8pH67HEmAP9gN3lQx4uQE4CTm6JwQpjLvk+TmayeWFKfQLJR7UJPwAdgj5IYlYWXnsOM9A7qy6qxStwpD+7iZYb/XQHkliKOdIfYa8=
+    forcelocal: true
+    only: 192.168.0.107,8080,0
