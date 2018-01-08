@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
-      - run: bower install polymer-cli
+
 
       - save_cache:
           paths:
@@ -35,4 +35,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
+      - run: bower install polymer-cli
       - run: npm test
