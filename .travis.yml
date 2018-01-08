@@ -4,7 +4,6 @@ before_script:
 - npm install -g bower gulp-cli@1 polymer-cli browserstack-local
 - bower install
 addons:
-
   browserstack:
     username: marcusweaver1
     access_key:
