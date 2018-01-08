@@ -35,5 +35,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: bower install polymer-cli
+      - run:
+          name: install-polymer-cli
+          command: npm install polymer-cli
       - run: npm test
