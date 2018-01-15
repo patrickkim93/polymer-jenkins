@@ -1,12 +1,13 @@
 language: node_js
 node_js: stable
 before_script:
-- npm install -g bower gulp-cli@1 polymer-cli
+- npm install -g bower gulp-cli@1 polymer-cli web-component-tester
 # browserstack-local
 - bower install
 cache:
   directories:
     - node_modules
+    - $HOME/.cache/bower
 script:
 #  - polymer test
 - xvfb-run wct -l chrome
