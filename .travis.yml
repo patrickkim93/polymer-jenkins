@@ -4,7 +4,7 @@ before_script:
 - npm install -g bower gulp-cli@1 polymer-cli browserstack-local
 - bower install
 script:
-- "xvfb-run $(npm bin)/wct"
+- "polymer test"
 # addons:
 #   browserstack:
 #     username: marcusweaver1
