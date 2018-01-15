@@ -4,6 +4,9 @@ addons:
   firefox: latest
   chrome: stable
 before_script:
+- "export DISPLAY=:99.0"
+- "sh -e /etc/init.d/xvfb start"
+- sleep 3 # give xvfb some time to start
 - npm install -g bower polymer-cli
 # browserstack-local
 - bower install
@@ -14,7 +17,7 @@ cache:
     - $HOME/.cache/bower
 script:
 #  - polymer test
-- xvfb-run polymer test
+- polymer test
 # - xvfb-run wct -l chrome
 # - xvfb-run wct -l firefox
 # addons:
