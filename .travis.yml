@@ -1,14 +1,10 @@
 language: node_js
 node_js: stable
 addons:
-  firefox: "latest"
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+  firefox: latest
+  chrome: stable
 before_script:
-- npm install -g bower polymer-cli web-component-tester
+- npm install -g bower polymer-cli
 # browserstack-local
 - bower install
 - polymer install
@@ -18,7 +14,7 @@ cache:
     - $HOME/.cache/bower
 script:
 #  - polymer test
-- xvfb-run npm run test
+- xvfb-run polymer test
 # - xvfb-run wct -l chrome
 # - xvfb-run wct -l firefox
 # addons:
