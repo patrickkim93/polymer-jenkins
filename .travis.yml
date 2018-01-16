@@ -1,23 +1,24 @@
 language: node_js
 node_js: stable
+dist: trusty
 addons:
   firefox: latest
   chrome: stable
 before_script:
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
-- sleep 3 # give xvfb some time to start
+# - "export DISPLAY=:99.0"
+# - "sh -e /etc/init.d/xvfb start"
+# - sleep 3 # give xvfb some time to start
 - npm install -g bower polymer-cli
+- npm install
 # browserstack-local
 - bower install
-- polymer install
 cache:
   directories:
     - node_modules
     - $HOME/.cache/bower
 script:
 #  - polymer test
-- polymer test
+- xvfb-run polymer test
 # - xvfb-run wct -l chrome
 # - xvfb-run wct -l firefox
 # addons:
